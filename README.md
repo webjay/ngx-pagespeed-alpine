@@ -2,15 +2,15 @@
 ngx_pagespeed Dockerfile for Alpine, based on wernight/docker-alpine-nginx-pagespeed
 
 ## Docker base
-This image is based on Alpine Linux version 3.4
+This image is based on Alpine Linux version 3.6
 
 ## Pagespeed Components:
 ### mod-pagespeed
-Custom built beta release tarball of mod-pagespeed (mod-pagespeed-beta-1.12.34.3.tar.bz2 uploaded in this repo). This custom tarball includes the upgraded GRPC version(1.4.5) which is required for the Alpine build.
+Custom built beta release tarball of mod-pagespeed (mod-pagespeed-stable-1.12.34.3.tar.bz2 uploaded in this repo). This custom tarball includes the upgraded GRPC version(1.4.5) which is required for the Alpine build.
 ### ngx-pagespeed
 Stable ngx-pagespeed version 1.12.34.3 fetched from [ngx pagespeed archive](https://github.com/pagespeed/ngx_pagespeed/archive/v1.12.34.3-stable.tar.gz).
 ### Nginx
-Stable NGINX version 1.12.1 fetched from [nginx.org](http://nginx.org/download/nginx-1.12.1.tar.gz) .
+Stable NGINX version 1.12.2 fetched from [nginx.org](http://nginx.org/download/nginx-1.12.2.tar.gz) .
 
 ## Using the Dockerfile
 ### Use docker build command to build an image from dockerfile:
@@ -23,4 +23,3 @@ Stable NGINX version 1.12.1 fetched from [nginx.org](http://nginx.org/download/n
 
 ## TODO
 - Update the Dockerfile to use the official mod-pagespeed release tarball once it is available and published.
-- Support Alpine Linux version 3.6
