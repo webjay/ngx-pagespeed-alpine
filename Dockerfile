@@ -42,7 +42,7 @@ RUN set -x && \
     PAGESPEED_VERSION=1.12.34.3 && \
     NGX_PAGESPEED_VERSION=1.12.34.3 && \
     cd /tmp && \
-    curl -L https://github.com/We-Amp/ngx-pagespeed-alpine/blob/master/mod-pagespeed-beta-1.12.34.3.tar.bz2?raw=true | tar -jx && \
+    curl -L https://github.com/We-Amp/ngx-pagespeed-alpine/blob/master/mod-pagespeed-stable-1.12.34.3.tar.bz2?raw=true | tar -jx && \
     curl -L https://github.com/pagespeed/ngx_pagespeed/archive/v${NGX_PAGESPEED_VERSION}-stable.tar.gz | tar -zx && \
     cd /tmp/modpagespeed-${PAGESPEED_VERSION} && \
     curl -L https://raw.githubusercontent.com/We-Amp/ngx-pagespeed-alpine/master/patches/automatic_makefile.patch | patch -p1 && \
