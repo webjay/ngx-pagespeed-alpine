@@ -114,6 +114,7 @@ RUN set -x && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
     # Make PageSpeed cache writabl:
     mkdir -p /var/cache/ngx_pagespeed && \
+    chown -R nginx:nginx /var/cache/ngx_pagespeed && \
     chmod -R o+wr /var/cache/ngx_pagespeed && \
     # PageSpeed log dir:
     mkdir -p /var/log/pagespeed && \
