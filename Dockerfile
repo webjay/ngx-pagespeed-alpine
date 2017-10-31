@@ -2,10 +2,10 @@ FROM alpine:3.6
 
 # Inspired by wernight/docker-alpine-nginx-pagespeed
 
-ENV PAGESPEED_VERSION 1.12.34.3
-ENV PAGESPEED_BRANCH stable
-ENV NGINX_VERSION 1.12.2
-ENV LIBPNG_VERSION 1.2.59
+ARG PAGESPEED_VERSION=1.12.34.3
+ARG PAGESPEED_BRANCH=stable
+ARG NGINX_VERSION=1.12.2
+ARG LIBPNG_VERSION=1.2.59
 
 RUN apk --no-cache add \
         ca-certificates \
