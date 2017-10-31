@@ -100,6 +100,8 @@ RUN set -x && \
         --without-http_upstream_ip_hash_module \
         --prefix=/etc/nginx \
         --conf-path=/etc/nginx/nginx.conf \
+        --http-log-path=/var/log/nginx/access.log \
+        --error-log-path=/var/log/nginx/error.log \
         --pid-path=/var/run/nginx.pid \
         --add-module=/tmp/ngx_pagespeed-${PAGESPEED_VERSION}-${PAGESPEED_BRANCH} \
         --with-cc-opt="-fPIC -I /usr/include/apr-1" \
@@ -109,9 +111,12 @@ RUN set -x && \
     cd && \
     apk del .build-deps && \
     rm -rf /tmp/* && \
+    # forward request and error logs to docker log collector
+    ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log && \
     # Make PageSpeed cache writabl:
-    mkdir -p /var/cache/pagespeed && \
-    chmod -R o+wr /var/cache/pagespeed && \
+    mkdir -p /var/cache/ngx_pagespeed && \
+    chmod -R o+wr /var/cache/ngx_pagespeed && \
     # PageSpeed log dir:
     mkdir -p /var/log/pagespeed && \
     chmod -R o+wr /var/log/pagespeed
